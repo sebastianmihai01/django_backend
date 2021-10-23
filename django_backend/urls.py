@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # default
+
+    # include = basically linking express routers (url files from our APPS inside the environment)
+    # we need an empty string as first arg (basically a wildcard)
+    #    because this is a PREFIX for the meetups URL (we dont want /meetups/meetups)
+    path('', include('meetups.urls')) # PREFIX our the urls we defined in the APP specific url file
 ]
