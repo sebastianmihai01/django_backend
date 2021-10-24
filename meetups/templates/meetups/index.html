@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,9 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Meetups</title>
+    <link rel="stylesheet" href="{% static 'meetups/style/base.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'meetups/style/all-meetups.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'meetups/style/meetup-detail.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'meetups/style/registration-confirmation.css' %}"
+    />
   </head>
   <body>
-    <h1>All meetups</h1>
+    <header id="main-header">
+      <nav><a href="/meetups" id="main-logo"> MySite </a></nav>
+      <h1>All meetups</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Meetings available for now</h2>
+        <ol>
+          {% if show_meetups %} {% for meetup_item in meetups %}
+          <li class="meetp-item">
+            <article>
+              <div class="meetup-summary">
+                <div class="meetup-image"></div>
+                <img src="" alt="" />
+              </div>
+              <div class="meetup-details">
+                <h3>{{meetup_item.title}}</h3>
+                <address>{{meetup_item.location}}</address>
+              </div>
+              <div class="meetup-actions">
+                <a href="" class="btn"> More Details </a>
+              </div>
+            </article>
+          </li>
+          {% endfor %} {% endif %}
+        </ol>
+      </section>
+    </main>
     <p>Hello !!!</p>
   </body>
 </html>

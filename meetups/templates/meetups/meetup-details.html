@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meetup_title}}</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.cc' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'meetups/styles/meetup-detail.cc' %}"
+    />
+  </head>
+  <body>
+    <main>
+      <article>
+        <img src="" alt="" />
+        <section id="location">
+          <h2>Location</h2>
+          <address>
+            This is located at:
+            <span>LOCATION</span>
+          </address>
+        </section>
+        <section id="details">
+          <h2>This is meetups' description</h2>
+          <p>{{meetup_desctipion}}</p>
+          <footer>
+            Want more information? Visit
+            <a href=""></a>
+          </footer>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
